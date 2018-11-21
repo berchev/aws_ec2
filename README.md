@@ -5,7 +5,8 @@ Downloading the content of this repository gives you possibility to create your 
 Note that instructions below are tested on ubuntu only.
 
 ## Requierments:
-You need packer tool installed on your machine.
+- You need packer tool installed on your machine.
+- You need AWS account with `aws_access_key` and `aws_secret_access_key` configured.
 
 ## Files:
 - `ec2.json` - file which **Packer** use in order to create our image
@@ -24,7 +25,7 @@ You need packer tool installed on your machine.
   export AWS_SECRET_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXXXXXX"
   ```
 - Note that current `ec2.json` configuration will create EC2 image in **us-west-2** region. If you do not want that, you need to specify region by your choice. 
-- Note taht change of the region will led to change in the image (`source_ami`). The `source_ami` specified in ec2.json file could be not available in the region chosed by you.
+- Note that change of the region will led to change in the image (`source_ami`). The `source_ami` specified in ec2.json file could be not available in the region chosen by you.
 That's why if you chnage the **region** you may need to change the **source_ami**, too.
 - Run command: `packer build template.json` and wait the script to finish. You will receive notification similar to this one:
   ```
@@ -32,3 +33,6 @@ That's why if you chnage the **region** you may need to change the **source_ami*
   --> amazon-ebs: AMIs were created:
   us-west-2: ami-02e3eb1cf3d4876de
   ```
+- Now your EC2 image is created. You may got your AWS account in order to verify this.
+
+## TODO
